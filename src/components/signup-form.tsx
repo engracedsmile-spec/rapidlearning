@@ -10,49 +10,46 @@ import {
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 
-export function LoginForm({
+export function SignupForm({
   className,
   ...props
 }: React.ComponentProps<'form'>) {
   return (
     <form className={cn('flex flex-col gap-6', className)} {...props}>
       <FieldGroup>
-        <div className='flex flex-col mb-30 mt-16  gap-1'>
-          <h1 className='text-4xl font-bold'>Sign in</h1>
-          <p className='text-black text-[16px] text-balance'>
-            Login Now, book your flight and Track your flight status
+        <div className='flex flex-col items-center gap-1 text-center'>
+          <h1 className='text-2xl font-bold'>Create your account</h1>
+          <p className='text-muted-foreground text-sm text-balance'>
+            Fill in the form below to create your account
           </p>
         </div>
         <Field>
+          <FieldLabel htmlFor='name'>Full Name</FieldLabel>
+          <Input id='name' type='text' placeholder='John Doe' required />
+        </Field>
+        <Field>
           <FieldLabel htmlFor='email'>Email</FieldLabel>
-          <Input
-            className='rounded-2xl'
-            id='email'
-            type='email'
-            placeholder='m@example.com'
-            required
-          />
+          <Input id='email' type='email' placeholder='m@example.com' required />
+          {/* <FieldDescription>
+            We&apos;ll use this to contact you. We will not share your email
+            with anyone else.
+          </FieldDescription> */}
         </Field>
         <Field>
-          <div className='flex items-center'>
-            <FieldLabel htmlFor='password'>Password</FieldLabel>
-            <a
-              href='#'
-              className='ml-auto font-bold text-sm text-green-600 underline-offset-4 hover:underline'
-            >
-              Forgot your password?
-            </a>
-          </div>
-          <Input
-            className='rounded-2xl'
-            id='password'
-            type='password'
-            required
-          />
+          <FieldLabel htmlFor='password'>Password</FieldLabel>
+          <Input id='password' type='password' required />
+          {/* <FieldDescription>
+            Must be at least 8 characters long.
+          </FieldDescription> */}
         </Field>
         <Field>
-          <Button className='bg-[#0c62d1] rounded-2xl' type='submit'>
-            Sign up
+          <FieldLabel htmlFor='confirm-password'>Confirm Password</FieldLabel>
+          <Input id='confirm-password' type='password' required />
+          {/* <FieldDescription>Please confirm your password.</FieldDescription> */}
+        </Field>
+        <Field>
+          <Button className='bg-[#0c62d1]' type='submit'>
+            Create Account
           </Button>
         </Field>
         <FieldSeparator>Or continue with</FieldSeparator>
@@ -64,11 +61,10 @@ export function LoginForm({
                 fill='currentColor'
               />
             </svg>
-            Login with Google
+            Sign up with GitHub
           </Button>
-          <FieldDescription className='text-center'>
-            Don&apos;t have an account? <Link href={'/signup'}>Sign up</Link>
-            <a href='#' className='underline underline-offset-4'></a>
+          <FieldDescription className='px-6 text-center'>
+            Already have an account? <Link href={'/'}>Log in</Link>
           </FieldDescription>
         </Field>
       </FieldGroup>

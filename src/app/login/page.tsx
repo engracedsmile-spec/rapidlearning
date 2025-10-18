@@ -8,10 +8,11 @@ export default function LoginPage() {
       <div className='flex flex-col gap-4 p-6 md:p-10'>
         <div className='flex justify-center gap-2 md:justify-start'>
           <a href='#' className='flex items-center gap-2 font-medium'>
-            <div className='bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md'>
-              <GalleryVerticalEnd className='size-4' />
-            </div>
-            Acme Inc.
+            <img
+              src='/TravelDark.svg'
+              alt='Image'
+              className=' justify-center mb-2 w-30'
+            />
           </a>
         </div>
         <div className='flex flex-1 items-center justify-center'>
